@@ -1,0 +1,12 @@
+input, button {
+  width: 300px;
+  display: inline;
+}
+
+button {
+  margin-top: 20px;
+}
+
+#login_header {
+  margin: 10px 0 10px 0;
+}

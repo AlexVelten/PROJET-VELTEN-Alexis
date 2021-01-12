@@ -1,0 +1,8 @@
+<div class="product-filter">
+  <span>Chercher un produit : </span>
+  <input type="text" name="filtre-name" (input)="sendNameFilter($event.target.value)"><br>
+  <span>Prix du produit inférieur ou égal  à : </span>
+  <input type="number" name="filtre-price-inf" (input)="sendPriceInfFilter($event.target.value)"><br>
+  <span>Prix du produit supérieur ou égal  à : </span>
+  <input type="number" name="filtre-price-sup" (input)="sendPriceSupFilter($event.target.value)"><br>
+</div>

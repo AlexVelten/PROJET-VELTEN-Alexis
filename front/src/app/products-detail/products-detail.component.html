@@ -1,0 +1,12 @@
+<div class="container mt-6">
+  <div class="center">
+    <h1 class="display-4">Produit {{ (product$ | async)?.nom }}</h1>
+  </div>
+  <div class="product-img">
+    <img src="{{ (product$ | async)?.url }}"><br>
+  </div>
+  <div class="product-price">
+    <span>Prix du produit : {{ (product$ | async)?.prix }}€</span><br>
+    <button type="button" (click)="addProduct()" class="btn btn-info">Ajouter au panier</button>
+  </div>
+</div>

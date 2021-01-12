@@ -1,0 +1,104 @@
+
+<div class="container mt-6">
+  <div class="center">
+    <h1 class="display-4">Informations personnelles</h1>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <span>Civilité : <span class="color-red">*</span><span>
+      <input type="radio" id="homme" name="civilite" value="Homme" #civilite="ngModel" ngModel required><label class="lbl-radio" for="homme">Homme</label>
+      <input type="radio" id="femme" name="civilite" value="Femme" #civilite="ngModel" ngModel required><label class="lbl-radio" for="femme">Femme</label>
+      <input type="radio" id="autre" name="civilite" value="Autre" #civilite="ngModel" ngModel required><label class="lbl-radio" for="autre">Autres</label>
+      <div *ngIf="civilite.invalid" class="color-red">
+        Veuillez choisir une civilité
+      </div>
+      <div class="form-group">
+        <label for="nom">Entrez votre nom : <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required maxlength="50" #nom="ngModel" ngModel>
+        <div *ngIf="nom.invalid" class="color-red">
+          Le champ nom est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="prenom">Entrez votre prénom : <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required maxlength="50" #prenom="ngModel" ngModel>
+        <div *ngIf="prenom.invalid" class="color-red">
+          Le champ prénom est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="adresse">Entrez votre adresse postale : <span class="color-red">*</span></label>
+        <input type="text" class="form-control" name="adresse" id="adresse" placeholder="Adresse postale" maxlength="50" required #adresse_postale="ngModel" ngModel>
+        <div *ngIf="adresse_postale.invalid" class="color-red">
+          Le champ adresse postale est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="code-postale">Entrez votre code postale : <span class="color-red">*</span></label>
+        <input type="text" class="form-control" name="code_postale" id="code_postale" placeholder="Code postale" required #code_postale="ngModel" pattern="[0-9]{5}" ngModel>
+        <div *ngIf="code_postale.invalid" class="color-red">
+          Le champ code postale est obligatoire et doit contenir 5 chiffres (Exemple : 67210)
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ville">Entrez votre ville : <span class="color-red">*</span></label>
+        <input type="text" class="form-control" name="ville" id="ville" placeholder="Ville" required #ville="ngModel" ngModel>
+        <div *ngIf="ville.invalid" class="color-red">
+          Le champ ville est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pays">Entrez votre pays : <span class="color-red">*</span></label>
+        <input type="text" class="form-control" name="pays" id="pays" placeholder="Pays" required #pays="ngModel" ngModel>
+        <div *ngIf="pays.invalid" class="color-red">
+          Le champ pays est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="telephone">Entrez votre numéro de téléphone : <span class="color-red">*</span></label>
+        <input type="tel" class="form-control"  name="telephone" id="telephone" placeholder="Telephone" required #telephone="ngModel" [(ngModel)]="standard_telephone">
+        <div *ngIf="telephone.invalid" class="color-red">
+          Le champ telephone est obligatoire et doit être de la forme 060504030201
+        </div>
+        <div  class="text-primary">
+          Format international : {{ standard_telephone | phone }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Entrez votre adresse mail : <span class="color-red">*</span></label>
+        <input type="email" class="form-control" name="email" id="email" #email="ngModel" placeholder="E-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ngModel>
+        <div *ngIf="email.invalid" class="color-red">
+          Le champ email est obligatoire et doit être de la forme mail@mail.fr
+        </div>
+      </div>
+      <div class="center">
+        <h1 class="display-4">Informations de connexion</h1>
+      </div>
+      <div class="form-group">
+        <label for="login">Entrez votre login : <span class="color-red">*</span></label>
+        <input type="login" class="form-control" name="login" id="login" placeholder="Login" required #login="ngModel" ngModel>
+        <div *ngIf="login.invalid" class="color-red">
+          Le champ login est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Entrez votre mot de passe : <span class="color-red">*</span></label>
+        <input type="password" class="form-control" name="password" id="password" #password="ngModel" placeholder="Mot de passe" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{5,15})$" ngModel>
+        <div *ngIf="password.invalid" class="color-red">
+          Le mot de passe est obligatoire et doit contenir au moins une lettre majuscule,une lettre minuscule, un chiffre et un caractère spéciale
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="verif-password">Entrez une nouvelle fois votre mot de passe : <span class="color-red">*</span></label>
+        <input type="password" class="form-control" name="verif_password" id="verif-password" #verif_password="ngModel" placeholder="Vérifier votre mot de passe" required ngModel>
+      </div>
+      <div *ngIf="password.valid && (password.value != verif_password.value)" class="color-red">
+        Les deux mots de passes n'ont pas la même valeur.
+      </div>
+      <div class="center">
+        <small id="required-text" class="color-red">Les champs suivit d'un * sont obligatoires</small><br>
+        <div *ngIf="this.hasError" class="center alert alert-danger" role="alert">
+          Ce login éxiste déjà
+        </div>
+        <button type="submit" id="btn-valider" class="btn btn-primary" [disabled]="!f.valid">S'inscrire</button>
+      </div>
+      <app-form-validations [display]="display" [client]="client"></app-form-validations>

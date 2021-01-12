@@ -1,0 +1,18 @@
+<div class="container mt-6">
+  <div *ngIf="this.hasError" class="center alert alert-danger" role="alert">
+    Login ou mot de passe incorect
+  </div>
+  <div class="center">
+    <h1 id="login_header" class="h2 mb-3 font-weight-normal">Se connecter</h1>
+  </div>
+  <form *ngIf="isConnected() == null" id="login_form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div class="center">
+      <label for="login" class="sr-only">Login</label>
+      <input type="text" id="login" name="login" class="form-control" placeholder="Login" #login="ngModel" ngModel required autofocus><br>
+      <label for="password" class="sr-only">Mot de passe</label>
+      <input type="password" id="password" name="password" class="form-control" #password="ngModel" ngModel placeholder="Mot de passe" required><br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+    </div>
+  </form>
+
+</div>

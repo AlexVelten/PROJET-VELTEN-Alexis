@@ -1,0 +1,37 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <span class="navbar-brand ml-5 mb-0 h1">Projet E-Commerce</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home">Accueil</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/products">Catalogue</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link notification" routerLink="/cart">
+          <span>Panier</span>
+          <span class="badge">{{ nbProducts$ | async }}</span>
+        </a>
+      </li>
+      <ng-container *ngIf="isConnected() == null; else elseTemplate">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/form-customer">Inscription</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/login">Connexion</a>
+        </li>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/account">Mon compte</a>
+        </li>
+        <button (click)="logOut()" id="logout" type="button" class="btn btn-danger">Déconnexion</button>
+      </ng-template>
+    </ul>
+  </div>
+</nav>

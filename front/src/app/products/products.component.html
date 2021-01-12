@@ -1,0 +1,24 @@
+<div class="container mt-6">
+  <div class="center">
+    <h1 class="display-4">Produits disponibles</h1>
+  </div>
+  <app-products-filter (productsFilterPriceSup)="receivePriceFilterSup($event)" (productsFilterPriceInf)="receivePriceFilterInf($event)" (productsFilterName)="receiveNameFilter($event)"></app-products-filter>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nom du produit</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Détail du produit</th>
+        <th scope="col">Ajouter au panier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of produits | async">
+        <td>{{ item.nom }}</td>
+        <td>{{ item.prix }}€</td>
+        <td class="button-product"><button [routerLink]="['/detail',item.id]" type="button" class="btn btn-primary">Détail</button></td>
+        <td class="button-product"><button (click)="addProduct(item)" type="button" class="btn btn-success">Ajouter</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

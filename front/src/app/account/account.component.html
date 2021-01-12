@@ -1,0 +1,16 @@
+<div class="container mt-6">
+  <div class="center">
+    <h1 class="display-4">Information sur votre compte</h1>
+  </div>
+  <div class="card-center">
+    <span>Login : {{ (user$ | async)?.login }}</span><br>
+    <span>Nom : {{ (user$ | async)?.lastName }}</span><br>
+    <span>Prénom : {{ (user$ | async)?.firstName }}</span><br>
+    <span>Adresse : {{ (user$ | async)?.address }}</span><br>
+    <span>Code postal : {{ (user$ | async)?.postalCode }}</span><br>
+    <span>Ville : {{ (user$ | async)?.city }}</span><br>
+    <span>Pays : {{ (user$ | async)?.country }}</span><br>
+    <span>E-mail : {{ (user$ | async)?.mail }}</span><br>
+    <span>Téléphone : {{ (user$ | async)?.phoneNumber }}</span><br>
+  </div>
+</div>

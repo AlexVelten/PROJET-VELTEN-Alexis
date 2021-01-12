@@ -1,0 +1,7 @@
+[
+    {"id":1, "nom": "Tomate","prix": 1, "url":"https://img.cuisineaz.com/680x357/2018-04-14/i139355-tomates.jpeg"},
+    {"id":2, "nom": "Oeuf","prix": 1, "url":"https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/16x9/oeuf-instagram-record.jpg"},
+    {"id":3, "nom": "Poulet (400g)","prix": 4, "url":"https://cdn.pratico-pratiques.com/app/uploads/sites/3/2019/02/28100343/poulet-style-rotisserie.jpg"},
+    {"id":4, "nom": "Haricots verts","prix": 3, "url":"https://img-3.journaldesfemmes.fr/EB559LzErF0e-mjSNjI2NMO1ySI=/910x607/smart/ff668b99ffd94d5997a34e5bc4518fe7/ccmcms-jdf/10659812.jpg"},
+    {"id":5, "nom": "Pizza","prix": 10, "url":"https://static.jow.fr/750x750/recipes/CScFDYGmNvC4Wg.png.webp"}
+]
